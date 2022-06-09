@@ -27,6 +27,7 @@ p {
 .icon {
   position: relative;
   font-size: 32px;
+  text-shadow: 2px 5px 5px rgb(176, 137, 109);
 }
 
 .name-box {

@@ -1,11 +1,9 @@
 import React from "react";
 
 export default function CourtCard({ title, playerCount, nameList }) {
-  //for loop here, calculate random co-ords, push to array? push jsx to array also, then down in
-  //jsx do <div className=icon-box>iconArray</div>
   let iconArray = [];
   for (let i = 0; i < playerCount; i++) {
-    let xRand = Math.floor(Math.random() * 110);
+    let xRand = Math.floor(Math.random() * 150) - 90;
     let yRand = Math.floor(Math.random() * 164);
     let randomizedPos = { left: xRand, top: yRand };
     if (title === "A") {
@@ -23,14 +21,14 @@ export default function CourtCard({ title, playerCount, nameList }) {
     }
   }
   return (
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
+    <div className="flip-card">
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
           <h3 className="court-title">{title} Court</h3>
           <div>{iconArray}</div>
         </div>
-        <div class="flip-card-back">
-          <div class="name-box">
+        <div className="flip-card-back">
+          <div className="name-box">
             {nameList.map((name) => {
               return <li>{name}</li>;
             })}

@@ -1,15 +1,11 @@
-import React, { useEffect, useContext, Spinner } from "react";
+import React, { useEffect, useContext, useState, Spinner } from "react";
 import { UserListContext } from "../App";
 import CourtCard from "./CourtCard";
 import "../App.css";
 
-export default function GetUsers({
-  tBallCounter,
-  bBallCounter,
-  setTBallCounter,
-  setBBallCounter,
-}) {
-  const { userList, setUserList } = useContext(UserListContext);
+export default function GetUsers({ setTBallCounter, setBBallCounter }) {
+  //const { userList, setUserList } = useContext(UserListContext);
+  const [userList, setUserList] = useState([]);
 
   let tBallPlayers = 0,
     bBallPlayers = 0,
@@ -64,11 +60,6 @@ export default function GetUsers({
           fNames.push(user.name);
           break;
       }
-      // return (
-      //   <p>
-      //     {user.name} {user.homeCourt}
-      //   </p>
-      // );
     }
   });
   setBBallCounter(bBallPlayers);
@@ -78,12 +69,14 @@ export default function GetUsers({
       {/* {setBBallCounter(bBallCounter)}
       {setTBallCounter(tBallCounter)} this creates infinite loop XD */}
 
-      <p> 🎾 : {tBallCounter} </p>
-      <p> 🔵 : {bBallCounter}</p>
+      {/********* *front page tests *****<p> 
+       🎾 : {tBallCounter} </p>
+      <p> 🔵 : {bBallCounter}</p> */}
       {/* <p>There are {aCourtPlayers} players on A court</p>
       <p>There are {aCourtPlayers} players on E court</p>
       <p>{aNames[0] + " and " + aNames[1]} are playing on A court</p>
       <p>{eNames[0] + " and " + eNames[1]} are playing on E court</p> */}
+
       <div className="card-box">
         <CourtCard title="A" playerCount={aCourtPlayers} nameList={aNames} />
         <CourtCard title="B" playerCount={bCourtPlayers} nameList={bNames} />
