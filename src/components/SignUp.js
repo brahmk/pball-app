@@ -9,13 +9,26 @@ export default function SignUp() {
     password: "",
     atCourt: false,
     homeCourt: "",
-    ball: "",
+    ball: "blue",
   });
 
-  const handleSignup = (newUser) => {
-    //fetch POST here
-    //.then(() => navigate('/home')
+  const handleSignup = (event) => {
+    event.preventDefault();
+    newUser.email = newUser.email.toLowerCase();
+    fetch("https://pball-api-bk.web.app/signup", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then(console.log("user added!"))
+      .catch((err) => console.log(err));
   };
+
+  //fetch POST here
+  //.then(() => navigate('/login')
 
   const handleChange = (e) => {
     const newValue = e.target.value;
@@ -28,57 +41,94 @@ export default function SignUp() {
 
   return (
     <div>
-      <h3>Sign up </h3>
-      <form name="signup" onSubmit={handleSignup}>
-        email:{" "}
-        <input
-          type="email"
-          name="email"
-          className="input-box"
-          placeholder="email"
-          value={newUser.email}
-          onChange={handleChange}
-          autoComplete="off"
-        />{" "}
+      <div className="signup-box">
         <br />
-        Password:{" "}
-        <input
-          type="password"
-          name="password"
-          className="input-box"
-          placeholder="password"
-          value={newUser.password}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <br />
-        First Name:{" "}
-        <input
-          name="name"
-          className="input-box"
-          value={newUser.name}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <div>
-          <h4>What do you play?</h4>
+        <h2>Sign Up</h2>
+        <form name="signup" onSubmit={handleSignup}>
+          email: <br />
           <input
-            type="radio"
-            value="ball"
+            type="text"
+            name="email"
+            className="input-box"
+            value={newUser.email}
             onChange={handleChange}
-            name="blue"
+            autoComplete="off"
           />{" "}
-          Big Blue 🔵
           <br />
+          <br />
+          password: <br />
           <input
-            type="radio"
-            value="ball"
+            type="password"
+            name="password"
+            className="input-box"
+            value={newUser.password}
             onChange={handleChange}
-            name="tennis"
-          />{" "}
-          Tennis Ball 🎾
-        </div>
-      </form>
+            autoComplete="off"
+          />
+          <br />
+          <br />
+          display name: <br />
+          <input
+            type="text"
+            name="name"
+            className="input-box"
+            value={newUser.name}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+          <div>
+            <h4>what do you play?</h4>
+            <input
+              type="radio"
+              value="blue"
+              onChange={handleChange}
+              name="ball"
+            />{" "}
+            Big Blue 🔵
+            <br />
+            <input
+              type="radio"
+              value="tennis"
+              onChange={handleChange}
+              name="ball"
+            />{" "}
+            Tennis Ball 🎾
+          </div>
+          <div>
+            <select name="homeCourt" onChange={handleChange}>
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+            </select>
+            <p></p>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 }
+
+/* <div> hidden radios
+          <label>
+            <input
+              className="hidden-radio"
+              type="radio"
+              name="homeCourt"
+              value="a"
+              onChange={handleChange}
+            />
+            <img src="https://m.media-amazon.com/images/I/61R9e+OIEFS._AC_SY679_.jpg" />
+          </label>
+
+          <label>
+            <input
+              className="hidden-radio"
+              type="radio"
+              name="homeCourt"
+              onChange={handleChange}
+              value="b"
+            />
+            <img src="https://m.media-amazon.com/images/I/61R9e+OIEFS._AC_SY679_.jpg" />
+          </label>
+        </div> */

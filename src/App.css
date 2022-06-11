@@ -8,6 +8,10 @@
   overflow-x: hidden;
   /* opacity: 0.8;
   backdrop-filter: blur 140px; */
+  background-image: url(./beach-shot.webp);
+  background-size: cover;
+  backdrop-filter: blur(999px);
+  opacity: 0.9;
 }
 
 .hero {
@@ -20,6 +24,11 @@
   overflow-x: hidden;
   /* opacity: 0.8;
   backdrop-filter: blur 140px; */
+}
+
+.background {
+  background-image: url(./ocean-tile-b.jpg);
+  background-repeat: repeat;
 }
 
 .card-box {
@@ -48,6 +57,70 @@ p {
 
 .court-title {
   color: darkseagreen;
+}
+
+.signup-box {
+  background-color: antiquewhite;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: rgb(81, 113, 81);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-justify: auto;
+  width: 600px;
+  height: 700px;
+  margin-left: 400px;
+  box-shadow: 2px 2px 2px 0px;
+  border-radius: 5px 5px 5px 5px;
+  opacity: 0.88;
+  font-family: cooper;
+}
+
+.header h1 {
+  margin-top: 0;
+}
+.header h2 {
+  margin-top: 0;
+}
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid rgb(81, 113, 81);
+
+  border-radius: 2px;
+  background-color: antiquewhite;
+  outline: none;
+  color: rgb(81, 113, 81);
+  font-family: cooper;
+}
+input[type="password"] {
+  border: none;
+  border-bottom: 2px solid rgb(81, 113, 81);
+
+  border-radius: 2px;
+  background-color: antiquewhite;
+  outline: none;
+  color: rgb(81, 113, 81);
+  font-family: cooper;
+}
+
+/* HIDE RADIO */
+.hidden-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+.hidden-radio + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.hidden-radio:checked + img {
+  outline: 2px solid rgb(177, 45, 45);
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -103,4 +176,9 @@ p {
   color: bisque;
   border-radius: 15px 40px 15px 40px;
   transform: rotateY(180deg);
+}
+
+@font-face {
+  font-family: cooper;
+  src: url("./Cooper\ Black\ Regular.ttf");
 }

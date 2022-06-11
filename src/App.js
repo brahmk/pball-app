@@ -22,7 +22,7 @@ function App() {
   return (
     <UserListContext.Provider value={{ userList, setUserList }}>
       <div className="App">
-        <Hero />
+        {/* <Hero />
         <div className="check-in-box">
           {!token ? (
             <h3>Check in / Check Out</h3>
@@ -35,7 +35,8 @@ function App() {
         <GetUsers
           setTBallCounter={setTBallCounter}
           setBBallCounter={setBBallCounter}
-        />
+        /> */}
+        <SignUp />
       </div>
     </UserListContext.Provider>
   );
