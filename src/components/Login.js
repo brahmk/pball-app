@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
-import bcrypt from "bcryptjs";
 import mySalt from "../salt";
 
 const salt = mySalt;
 
 export default function Login({ setToken }) {
-  //const [email, setEmail] = useState("");
-  const [state, setState] = useState({ email: "", password: "" });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = ({ email, password }) => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    //   ({ email, password } = event)
     console.log(email, password);
     //const hash = bcrypt.hashSync(password, salt);
     //console.log(hash);
@@ -34,25 +35,20 @@ export default function Login({ setToken }) {
       .catch((err) => console.log(err));
   };
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setState((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
-  };
-
   return (
     <div>
       <h1>Login</h1>
-      <form name="login" onSubmit={handleLogin(state)}>
+      <form name="login" onSubmit={handleLogin}>
         <input
           type="email"
           id="email"
           className="email"
           placeholder="email"
-          value={state.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            console.log(email);
+          }}
           autoComplete="off"
         />
         <input
@@ -60,8 +56,11 @@ export default function Login({ setToken }) {
           id="password"
           className="password"
           placeholder="Password"
-          value={state.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            console.log(password);
+          }}
         />
         <button type="submit">Login</button>
       </form>

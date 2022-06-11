@@ -62,8 +62,8 @@ export default function GetUsers({ setTBallCounter, setBBallCounter }) {
       }
     }
   });
-  setBBallCounter(bBallPlayers);
-  setTBallCounter(tBallPlayers);
+  // setBBallCounter(bBallPlayers);
+  // setTBallCounter(tBallPlayers);
   return (
     <>
       {/* {setBBallCounter(bBallCounter)}

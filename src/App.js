@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import GetUsers from "./components/GetUsers";
+import Hero from "./components/Hero";
 
 export const UserListContext = createContext(null);
 
@@ -16,19 +17,19 @@ function App() {
     if (_token) {
       setToken(_token);
     }
-  }, []);
+  }, [setToken]);
 
   return (
     <UserListContext.Provider value={{ userList, setUserList }}>
       <div className="App">
-        <h1> </h1>
+        <Hero />
         <div className="check-in-box">
-          {token ? (
+          {!token ? (
+            <h3>Check in / Check Out</h3>
+          ) : (
             <>
               <Login setToken={setToken} /> <SignUp />
             </>
-          ) : (
-            <h3>Check in / Check Out</h3>
           )}
         </div>
         <GetUsers

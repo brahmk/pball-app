@@ -1,7 +1,19 @@
 .App {
-  /* background-image: url(./beachbg.webp); */
+  /* background-image: url(./beachbg.webp);
   background-repeat: no-repeat;
   height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  /* overflow-y: hidden; 
+  overflow-x: hidden;
+  /* opacity: 0.8;
+  backdrop-filter: blur 140px; */
+}
+
+.hero {
+  background-image: url(./hero-wtext.png);
+  background-repeat: no-repeat;
+  height: 670px;
   width: 100vw;
   background-size: cover;
   /* overflow-y: hidden; */
@@ -12,7 +24,7 @@
 
 .card-box {
   width: 950px;
-  height: 850px;
+  height: 600px;
 
   display: flex;
   flex-wrap: wrap;
