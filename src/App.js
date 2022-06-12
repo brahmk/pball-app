@@ -8,7 +8,7 @@ import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Body from "./components/Body";
-import { MyContext } from "./context/context";
+import { MyContextProvider } from "./context/context";
 
 export const UserListContext = createContext(null);
 
@@ -25,12 +25,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MyContext.Provider>
+      <MyContextProvider>
         <div className="App">
           <Routes>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Body />} />
           </Routes>
           <Navbar />
           <Hero />
@@ -48,7 +48,7 @@ function App() {
             setBBallCounter={setBBallCounter}
           />
         </div>
-      </MyContext.Provider>
+      </MyContextProvider>
     </BrowserRouter>
   );
 }

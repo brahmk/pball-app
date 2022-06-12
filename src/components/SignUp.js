@@ -39,7 +39,7 @@ export default function SignUp() {
   };
 
   return (
-    <div>
+    <div className="background">
       <div className="signup-box">
         <br />
         <h2>
