@@ -4,7 +4,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import GetUsers from "./components/GetUsers";
 import Hero from "./components/Hero";
-import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Body from "./components/Body";
@@ -16,12 +16,6 @@ function App() {
   const [tBallCounter, setTBallCounter] = useState(0);
   const [bBallCounter, setBBallCounter] = useState(0);
   const [token, setToken] = useState();
-  useEffect(() => {
-    const _token = localStorage.getItem("token");
-    if (_token) {
-      setToken(_token);
-    }
-  }, [setToken]);
 
   return (
     <BrowserRouter>
@@ -29,24 +23,9 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Body />} />
+            <Route path="/login" element={<Login setToken={setToken} />} />
+            <Route path="/" element={<Home />} />
           </Routes>
-          <Navbar />
-          <Hero />
-          <Body />
-          <div className="check-in-box">
-            {!token ? (
-              <h3>Check in / Check Out</h3>
-            ) : (
-              <>logged in{/* <Login setToken={setToken} /> <SignUp /> */}</>
-            )}
-          </div>
-
-          <GetUsers
-            setTBallCounter={setTBallCounter}
-            setBBallCounter={setBBallCounter}
-          />
         </div>
       </MyContextProvider>
     </BrowserRouter>
