@@ -1,10 +1,11 @@
-import React, { useEffect, useContext, useState, Spinner } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { UserListContext } from "../App";
 import CourtCard from "./CourtCard";
 import "../App.css";
+import { MyContext } from "../context/context";
 
 export default function GetUsers({ setTBallCounter, setBBallCounter }) {
-  //const { userList, setUserList } = useContext(UserListContext);
+  //const { userList, setUserList } = useContext(MyContext);
   const [userList, setUserList] = useState([]);
 
   let tBallPlayers = 0,
@@ -78,12 +79,12 @@ export default function GetUsers({ setTBallCounter, setBBallCounter }) {
       <p>{eNames[0] + " and " + eNames[1]} are playing on E court</p> */}
 
       <div className="card-box">
-        <CourtCard title="A" playerCount={aCourtPlayers} nameList={aNames} />
-        <CourtCard title="B" playerCount={bCourtPlayers} nameList={bNames} />
-        <CourtCard title="C" playerCount={cCourtPlayers} nameList={cNames} />
         <CourtCard title="D" playerCount={dCourtPlayers} nameList={dNames} />
         <CourtCard title="E" playerCount={eCourtPlayers} nameList={eNames} />
         <CourtCard title="F" playerCount={fCourtPlayers} nameList={fNames} />
+        <CourtCard title="C" playerCount={cCourtPlayers} nameList={cNames} />
+        <CourtCard title="B" playerCount={bCourtPlayers} nameList={bNames} />
+        <CourtCard title="A" playerCount={aCourtPlayers} nameList={aNames} />
       </div>
     </>
   );

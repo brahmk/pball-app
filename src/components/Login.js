@@ -29,34 +29,44 @@ export default function Login({ setToken }) {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form name="login" onSubmit={handleLogin}>
-        <input
-          type="email"
-          id="email"
-          className="email"
-          placeholder="email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            console.log(email);
-          }}
-          autoComplete="off"
-        />
-        <input
-          type="password"
-          id="password"
-          className="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            console.log(password);
-          }}
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="background">
+      <div className="signup-box">
+        <h1>
+          <u>Login</u>
+        </h1>
+        <form name="login" onSubmit={handleLogin}>
+          email: <br />
+          <input
+            type="email"
+            id="email"
+            className="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              console.log(email);
+            }}
+            autoComplete="new-off"
+          />
+          <br />
+          password:
+          <br />
+          <input
+            type="password"
+            id="password"
+            className="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              console.log(password);
+            }}
+          />
+          <br />
+          <br />
+          <br />
+          <br />
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 }

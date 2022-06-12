@@ -7,11 +7,12 @@ import Hero from "./components/Hero";
 import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Body from "./components/Body";
+import { MyContext } from "./context/context";
 
 export const UserListContext = createContext(null);
 
 function App() {
-  const [userList, setUserList] = useState([]);
   const [tBallCounter, setTBallCounter] = useState(0);
   const [bBallCounter, setBBallCounter] = useState(0);
   const [token, setToken] = useState();
@@ -24,16 +25,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserListContext.Provider value={{ userList, setUserList }}>
+      <MyContext.Provider>
         <div className="App">
           <Routes>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-
             <Route path="/" element={<Home />} />
           </Routes>
           <Navbar />
           <Hero />
+          <Body />
           <div className="check-in-box">
             {!token ? (
               <h3>Check in / Check Out</h3>
@@ -41,12 +42,13 @@ function App() {
               <>logged in{/* <Login setToken={setToken} /> <SignUp /> */}</>
             )}
           </div>
+
           <GetUsers
             setTBallCounter={setTBallCounter}
             setBBallCounter={setBBallCounter}
           />
         </div>
-      </UserListContext.Provider>
+      </MyContext.Provider>
     </BrowserRouter>
   );
 }
