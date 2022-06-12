@@ -4,6 +4,9 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import GetUsers from "./components/GetUsers";
 import Hero from "./components/Hero";
+import { Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 export const UserListContext = createContext(null);
 
@@ -20,25 +23,31 @@ function App() {
   }, [setToken]);
 
   return (
-    <UserListContext.Provider value={{ userList, setUserList }}>
-      <div className="App">
-        {/* <Hero />
-        <div className="check-in-box">
-          {!token ? (
-            <h3>Check in / Check Out</h3>
-          ) : (
-            <>
-              <Login setToken={setToken} /> <SignUp />
-            </>
-          )}
+    <BrowserRouter>
+      <UserListContext.Provider value={{ userList, setUserList }}>
+        <div className="App">
+          <Routes>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/" element={<Home />} />
+          </Routes>
+          <Navbar />
+          <Hero />
+          <div className="check-in-box">
+            {!token ? (
+              <h3>Check in / Check Out</h3>
+            ) : (
+              <>logged in{/* <Login setToken={setToken} /> <SignUp /> */}</>
+            )}
+          </div>
+          <GetUsers
+            setTBallCounter={setTBallCounter}
+            setBBallCounter={setBBallCounter}
+          />
         </div>
-        <GetUsers
-          setTBallCounter={setTBallCounter}
-          setBBallCounter={setBBallCounter}
-        /> */}
-        <SignUp />
-      </div>
-    </UserListContext.Provider>
+      </UserListContext.Provider>
+    </BrowserRouter>
   );
 }
 

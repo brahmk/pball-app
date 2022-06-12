@@ -12,8 +12,7 @@ export default function SignUp() {
     ball: "blue",
   });
 
-  const handleSignup = (event) => {
-    event.preventDefault();
+  const handleSignup = () => {
     newUser.email = newUser.email.toLowerCase();
     fetch("https://pball-api-bk.web.app/signup", {
       method: "POST",
@@ -43,7 +42,9 @@ export default function SignUp() {
     <div>
       <div className="signup-box">
         <br />
-        <h2>Sign Up</h2>
+        <h2>
+          <u>Sign Up</u>
+        </h2>
         <form name="signup" onSubmit={handleSignup}>
           email: <br />
           <input
@@ -76,8 +77,10 @@ export default function SignUp() {
             onChange={handleChange}
             autoComplete="off"
           />
+          <br />
           <div>
-            <h4>what do you play?</h4>
+            what do you play?
+            <br />
             <input
               type="radio"
               value="blue"

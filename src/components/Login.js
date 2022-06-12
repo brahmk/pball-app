@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 
-import mySalt from "../salt";
-
-const salt = mySalt;
-
 export default function Login({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
-    //   ({ email, password } = event)
     console.log(email, password);
-    //const hash = bcrypt.hashSync(password, salt);
-    //console.log(hash);
     fetch("https://pball-api-bk.web.app/login", {
       method: "POST",
       headers: {
