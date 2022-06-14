@@ -8,7 +8,7 @@ import CheckOut from "./CheckOut";
 import userEvent from "@testing-library/user-event";
 
 export default function Body() {
-  const { token, setToken, bBallCounter, tBallCounter, user } =
+  const { token, setToken, bBallCounter, tBallCounter, user, userList } =
     useContext(MyContext) || {};
 
   useEffect(() => {
@@ -21,12 +21,11 @@ export default function Body() {
   return (
     <div className="big-body-box">
       <h1 id="body-header" className="body-header">
-        Hi There are {bBallCounter + tBallCounter} people at the courts right
-        now.
+        Hi <br /> There are {bBallCounter + tBallCounter} people at the courts
+        right now.
       </h1>
       <h3>🎾: {tBallCounter}</h3>
       <h3>🔵: {bBallCounter}</h3>
-
       <div className="check-in-box">
         {!user ? (
           <h3>
@@ -41,7 +40,7 @@ export default function Body() {
           </>
         )}
       </div>
-      <GetUsers />
+      <GetUsers />;
     </div>
   );
 }

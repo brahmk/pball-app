@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { MyContext } from "../context/context";
 
 export default function CheckIn() {
-  const { user, setHere } = useContext(MyContext);
+  const { user, setHere, setUserList } = useContext(MyContext);
 
   const submitCheckIn = (e) => {
     e.preventDefault();
@@ -13,8 +13,10 @@ export default function CheckIn() {
       .patch("https://pball-api-bk.web.app/checkin", {
         id,
       })
-      .then(setHere(true))
-      .then(console.log(id))
+      .then(setHere(true));
+    axios
+      .get("https://pball-api-bk.web.app/users")
+      .then((res) => setUserList(res.data))
 
       .catch((err) => console.log(err));
   };
