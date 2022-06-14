@@ -8,8 +8,15 @@ import CheckOut from "./CheckOut";
 import userEvent from "@testing-library/user-event";
 
 export default function Body() {
-  const { token, setToken, bBallCounter, tBallCounter, user } =
-    useContext(MyContext) || {};
+  const {
+    token,
+    setToken,
+    bBallCounter,
+    tBallCounter,
+    user,
+    setLocalUser,
+    setUser,
+  } = useContext(MyContext) || {};
 
   useEffect(() => {
     const _token = localStorage.getItem("token");
@@ -18,11 +25,24 @@ export default function Body() {
     }
   }, [setToken]);
 
+  useEffect(() => {
+    const _localName = localStorage.getItem("localName");
+    if (_localName) {
+      setUser({ ...user, name: _localName });
+    }
+    const _localId = localStorage.getItem("localId");
+    if (_localId) {
+      setUser({ ...user, id: _localId });
+    }
+
+    console.log(user);
+  }, [setUser]);
+
   return (
     <div className="big-body-box">
       <h1 id="body-header" className="body-header">
-        Hi There are {bBallCounter + tBallCounter} people at the courts right
-        now.
+        Hi {localStorage.getItem("localName")}. There are{" "}
+        {bBallCounter + tBallCounter} people at the courts right now.
       </h1>
       <h3>🎾: {tBallCounter}</h3>
       <h3>🔵: {bBallCounter}</h3>

@@ -5,78 +5,136 @@ import { MyContext } from "../context/context";
 import axios from "axios";
 
 export default function GetUsers() {
-  const { setBBallCounter, setTBallCounter } = useContext(MyContext);
+  const { setBBallCounter, setTBallCounter, setHere, here } =
+    useContext(MyContext);
   const [userList, setUserList] = useState([]);
   //setHere in useeffect
   //set playercounters as statevariables in context, use effect to setBBallCounter + tBall counter
 
-  let tBallPlayers = 0,
-    bBallPlayers = 0,
-    aCourtPlayers = 0,
-    bCourtPlayers = 0,
-    cCourtPlayers = 0,
-    dCourtPlayers = 0,
-    eCourtPlayers = 0,
-    fCourtPlayers = 0;
+  //const [tBallPlayers, setTballPlayers] = useState(0);
+  //const [bBallPlayers, setBballPlayers] = useState(0);
+  const [courtCounters, setCourtCounters] = useState({
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    f: 0,
+  });
+
+  const [nameArrays, setNameArrays] = useState([]);
+
   let aNames = [],
     bNames = [],
     cNames = [],
     dNames = [],
     eNames = [],
     fNames = [];
+  let a = 0,
+    b = 0,
+    c = 0,
+    d = 0,
+    e = 0,
+    f = 0,
+    tBallPlayers = 0,
+    bBallPlayers = 0;
 
   useEffect(() => {
     axios
       .get("https://pball-api-bk.web.app/users")
       .then((res) => setUserList(res.data))
+      .then(console.log(userList))
       .catch(console.error);
   }, []);
 
   userList.map((user) => {
+    console.log(user);
     if (user.atCourt) {
       user.ball === "blue" ? bBallPlayers++ : tBallPlayers++;
 
       switch (user.homeCourt) {
         case "a":
-          aCourtPlayers++;
+          a++;
           aNames.push(user.name);
-
+          console.log(a);
+          console.log(aNames);
           break;
+
         case "b":
-          bCourtPlayers++;
+          b++;
           bNames.push(user.name);
           break;
         case "c":
-          cCourtPlayers++;
+          c++;
           cNames.push(user.name);
           break;
         case "d":
-          dCourtPlayers++;
+          d++;
           dNames.push(user.name);
           break;
         case "e":
-          eCourtPlayers++;
+          e++;
           eNames.push(user.name);
           break;
         case "f":
-          fCourtPlayers++;
+          f++;
           fNames.push(user.name);
           break;
       }
     }
+    let bigNameArray = [];
+    bigNameArray.push(aNames, bNames, cNames, dNames, eNames, fNames);
+    setCourtCounters({ a, b, c, d, e, f });
+    setNameArrays(bigNameArray);
   });
-  // setBBallCounter(bBallPlayers);
-  // setTBallCounter(tBallPlayers);
+
+  console.log(nameArrays);
+  console.log(courtCounters);
+
   return (
     <>
-      <div className="card-box">
-        <CourtCard title="D" playerCount={dCourtPlayers} nameList={dNames} />
-        <CourtCard title="E" playerCount={eCourtPlayers} nameList={eNames} />
-        <CourtCard title="F" playerCount={fCourtPlayers} nameList={fNames} />
-        <CourtCard title="C" playerCount={cCourtPlayers} nameList={cNames} />
-        <CourtCard title="B" playerCount={bCourtPlayers} nameList={bNames} />
-        <CourtCard title="A" playerCount={aCourtPlayers} nameList={aNames} />
-      </div>
+      {!userList ? (
+        <h2>loading...</h2>
+      ) : (
+        <div className="card-box">
+          <CourtCard
+            key="d"
+            title="D"
+            playerCount={courtCounters.d}
+            nameList={nameArrays[3]}
+          />
+          <CourtCard
+            key="e"
+            title="E"
+            playerCount={courtCounters.e}
+            nameList={nameArrays[4]}
+          />
+          <CourtCard
+            key="f"
+            title="F"
+            playerCount={courtCounters.f}
+            nameList={nameArrays[5]}
+          />
+          <CourtCard
+            key="c"
+            title="C"
+            playerCount={courtCounters.c}
+            nameList={nameArrays[2]}
+          />
+          <CourtCard
+            key="b"
+            title="B"
+            playerCount={courtCounters.b}
+            nameList={nameArrays[2]}
+          />
+          <CourtCard
+            key="a"
+            title="A"
+            playerCount={courtCounters.aCount}
+            nameList={nameArrays[0]}
+          />
+        </div>
+      )}
     </>
   );
 }

@@ -7,7 +7,9 @@ export default function CheckOut() {
 
   const submitCheckOut = (e) => {
     e.preventDefault();
-    let id = user.id;
+    console.log(user);
+    e.preventDefault();
+    let id = localStorage.getItem("localId"); ///should be user.id
     axios
       .patch("https://pball-api-bk.web.app/checkout", {
         id,
