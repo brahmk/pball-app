@@ -3,11 +3,11 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/context";
 
-export default function Login({ setToken }) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
-  const { setUser, user } = useContext(MyContext);
+  const { setToken, setUser, user } = useContext(MyContext);
 
   const handleLogin = (event) => {
     event.preventDefault();

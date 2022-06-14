@@ -14,9 +14,11 @@ export default function CheckOut() {
       .patch("https://pball-api-bk.web.app/checkout", {
         id,
       })
-      .then(setHere(false))
-      .then(console.log(user))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setHere(false);
+        setUserList(res.data);
+      })
+      .catch(console.error);
   };
 
   return (

@@ -29,9 +29,10 @@ export default function CourtCard({ title, playerCount, nameList }) {
         </div>
         <div className="flip-card-back">
           <div className="name-box">
-            {nameList.map((name) => {
-              return <li>{name}</li>;
-            })}
+            {nameList &&
+              nameList.map((name) => {
+                return <li key={name}>{name}</li>;
+              })}
           </div>
         </div>
       </div>

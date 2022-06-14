@@ -1,22 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import { MyContextProvider } from "../context/context";
 import GetUsers from "./GetUsers";
-import Login from "./Login";
 import { MyContext } from "../context/context";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
-import userEvent from "@testing-library/user-event";
 
 export default function Body() {
-  const {
-    token,
-    setToken,
-    bBallCounter,
-    tBallCounter,
-    user,
-    setLocalUser,
-    setUser,
-  } = useContext(MyContext) || {};
+  const { setToken, bBallCounter, tBallCounter, user, setUser } =
+    useContext(MyContext) || {};
 
   useEffect(() => {
     const _token = localStorage.getItem("token");

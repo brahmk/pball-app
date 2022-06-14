@@ -10,6 +10,7 @@ export function MyContextProvider({ children }) {
   const [userList, setUserList] = useState([]);
   const [bBallCounter, setBBallCounter] = useState(0);
   const [tBallCounter, setTBallCounter] = useState(0);
+  const [playerList, setPlayerList] = useState({});
   const [here, setHere] = useState(false);
   const [localUser, setLocalUser] = useState({});
 
@@ -30,6 +31,8 @@ export function MyContextProvider({ children }) {
     setHere,
     localUser,
     setLocalUser,
+    playerList,
+    setPlayerList,
   };
 
   return <Provider value={value}>{children}</Provider>;
