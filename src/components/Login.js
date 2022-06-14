@@ -23,10 +23,11 @@ export default function Login({ setToken }) {
           alert(data.error);
           return;
         }
-        console.log(data);
-        setToken(data.id);
-        setUser(data);
-        console.log(data.token);
+        console.log(data.user);
+        setToken(data.user.token);
+        setUser(data.user);
+        console.log(data.user.token);
+        //localStorage.setItem("user", data.user)
         localStorage.setItem("token", data.token);
       })
       .then(() => navigate("/")) //nav to body

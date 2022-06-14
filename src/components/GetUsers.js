@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { UserListContext } from "../App";
 import CourtCard from "./CourtCard";
 import "../App.css";
 import { MyContext } from "../context/context";
@@ -8,6 +7,8 @@ import axios from "axios";
 export default function GetUsers() {
   const { setBBallCounter, setTBallCounter } = useContext(MyContext);
   const [userList, setUserList] = useState([]);
+  //setHere in useeffect
+  //set playercounters as statevariables in context, use effect to setBBallCounter + tBall counter
 
   let tBallPlayers = 0,
     bBallPlayers = 0,
@@ -64,21 +65,10 @@ export default function GetUsers() {
       }
     }
   });
-  setBBallCounter(bBallPlayers);
-  setTBallCounter(tBallPlayers);
+  // setBBallCounter(bBallPlayers);
+  // setTBallCounter(tBallPlayers);
   return (
     <>
-      {/* {setBBallCounter(bBallCounter)}
-      {setTBallCounter(tBallCounter)} this creates infinite loop XD */}
-
-      {/********* *front page tests *****<p> 
-       🎾 : {tBallCounter} </p>
-      <p> 🔵 : {bBallCounter}</p> */}
-      {/* <p>There are {aCourtPlayers} players on A court</p>
-      <p>There are {aCourtPlayers} players on E court</p>
-      <p>{aNames[0] + " and " + aNames[1]} are playing on A court</p>
-      <p>{eNames[0] + " and " + eNames[1]} are playing on E court</p> */}
-
       <div className="card-box">
         <CourtCard title="D" playerCount={dCourtPlayers} nameList={dNames} />
         <CourtCard title="E" playerCount={eCourtPlayers} nameList={eNames} />

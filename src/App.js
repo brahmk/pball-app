@@ -33,10 +33,3 @@ function App() {
 }
 
 export default App;
-
-//in court card for (i = 0; i <= aPlayer; i++){
-//generate random x/y within coordinates
-// return <p style={"x:ranX, y:ranY"}>🎾</p>
-// }
-
-//players to display on home page get from  tball + pball pass context

@@ -4,7 +4,7 @@ export default function CourtCard({ title, playerCount, nameList }) {
   let iconArray = [];
   for (let i = 0; i < playerCount; i++) {
     let xRand = Math.floor(Math.random() * 150) - 90;
-    let yRand = Math.floor(Math.random() * 120);
+    let yRand = Math.floor(Math.random() * 120 - 50);
     let randomizedPos = { left: xRand, top: yRand };
     if (title === "A") {
       iconArray.push(

@@ -26,8 +26,8 @@ export default function SignUp() {
       .post("https://pball-api-bk.web.app/signup", {
         newUser,
       })
-      .then(console.log("user added!")) //make user added visible to user
-      .then(() => navigate("/login")) //nav to body
+      .then(console.log("user added!")) //make "user added" visible to user
+      .then(() => navigate("/login")) //nav to body anchor
       .catch((err) => console.log(err));
   };
 
