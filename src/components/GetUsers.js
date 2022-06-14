@@ -3,9 +3,10 @@ import { UserListContext } from "../App";
 import CourtCard from "./CourtCard";
 import "../App.css";
 import { MyContext } from "../context/context";
+import axios from "axios";
 
-export default function GetUsers({ setTBallCounter, setBBallCounter }) {
-  //const { userList, setUserList } = useContext(MyContext);
+export default function GetUsers() {
+  const { setBBallCounter, setTBallCounter } = useContext(MyContext);
   const [userList, setUserList] = useState([]);
 
   let tBallPlayers = 0,
@@ -24,9 +25,9 @@ export default function GetUsers({ setTBallCounter, setBBallCounter }) {
     fNames = [];
 
   useEffect(() => {
-    fetch("https://pball-api-bk.web.app/users")
-      .then((res) => res.json())
-      .then(setUserList)
+    axios
+      .get("https://pball-api-bk.web.app/users")
+      .then((res) => setUserList(res.data))
       .catch(console.error);
   }, []);
 
@@ -63,8 +64,8 @@ export default function GetUsers({ setTBallCounter, setBBallCounter }) {
       }
     }
   });
-  // setBBallCounter(bBallPlayers);
-  // setTBallCounter(tBallPlayers);
+  setBBallCounter(bBallPlayers);
+  setTBallCounter(tBallPlayers);
   return (
     <>
       {/* {setBBallCounter(bBallCounter)}

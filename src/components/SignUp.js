@@ -1,8 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import acourt from "../img/acourt.png";
+import bcourt from "../img/bcourt.png";
+import ccourt from "../img/ccourt.png";
+import dcourt from "../img/dcourt.png";
+import ecourt from "../img/ecourt.png";
+import fcourt from "../img/fcourt.png";
 
 export default function SignUp() {
-  let navigate = useNavigate;
+  let navigate = useNavigate();
   const [newUser, setNewUser] = useState({
     name: "",
     email: "",
@@ -12,22 +19,17 @@ export default function SignUp() {
     ball: "blue",
   });
 
-  const handleSignup = () => {
+  const handleSignup = (e) => {
+    e.preventDefault();
     newUser.email = newUser.email.toLowerCase();
-    fetch("https://pball-api-bk.web.app/signup", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        // "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(newUser),
-    })
-      .then(console.log("user added!"))
+    axios
+      .post("https://pball-api-bk.web.app/signup", {
+        newUser,
+      })
+      .then(console.log("user added!")) //make user added visible to user
+      .then(() => navigate("/login")) //nav to body
       .catch((err) => console.log(err));
   };
-
-  //fetch POST here
-  //.then(() => navigate('/login')
 
   const handleChange = (e) => {
     const newValue = e.target.value;
@@ -78,6 +80,7 @@ export default function SignUp() {
             autoComplete="off"
           />
           <br />
+          <br />
           <div>
             what do you play?
             <br />
@@ -97,41 +100,87 @@ export default function SignUp() {
             />{" "}
             Tennis Ball 🎾
           </div>
+          <br />
           <div>
-            <select name="homeCourt" onChange={handleChange}>
-              <option value="a">A</option>
-              <option value="b">B</option>
-              <option value="c">C</option>
-            </select>
+            what court do you play on most often?{" "}
+            <div className="hidden-radio-box">
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  value="d"
+                  onChange={handleChange}
+                />
+                <img src={dcourt} alt="d court" className="court-radio" />
+              </label>
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  onChange={handleChange}
+                  value="e"
+                />
+                <img src={ecourt} className="hidden-radio" />
+              </label>
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  value="f"
+                  onChange={handleChange}
+                />
+                <img src={fcourt} alt="d court" className="court-radio" />
+              </label>
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  onChange={handleChange}
+                  value="c"
+                />
+                <img src={ccourt} className="hidden-radio" />
+              </label>
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  value="b"
+                  onChange={handleChange}
+                />
+                <img src={bcourt} alt="d court" className="court-radio" />
+              </label>
+              <label>
+                <input
+                  className="hidden-radio"
+                  type="radio"
+                  name="homeCourt"
+                  onChange={handleChange}
+                  value="a"
+                />
+                <img src={acourt} className="hidden-radio" />
+              </label>
+            </div>{" "}
             <p></p>
           </div>
-          <button type="submit">Sign Up</button>
+          <button className="button bouncy" type="submit">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
   );
 }
 
-/* <div> hidden radios
-          <label>
-            <input
-              className="hidden-radio"
-              type="radio"
-              name="homeCourt"
-              value="a"
-              onChange={handleChange}
-            />
-            <img src="https://m.media-amazon.com/images/I/61R9e+OIEFS._AC_SY679_.jpg" />
-          </label>
-
-          <label>
-            <input
-              className="hidden-radio"
-              type="radio"
-              name="homeCourt"
-              onChange={handleChange}
-              value="b"
-            />
-            <img src="https://m.media-amazon.com/images/I/61R9e+OIEFS._AC_SY679_.jpg" />
-          </label>
-        </div> */
+//   <select name="homeCourt" onChange={handleChange}>
+//   <option value="a">A</option>
+//   <option value="b">B</option>
+//   <option value="c">C</option>
+//   <option value="d">D</option>
+//   <option value="e">E</option>
+//   <option value="f">F</option>
+// </select>

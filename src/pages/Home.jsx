@@ -9,7 +9,7 @@ export default function Home() {
       {" "}
       <Navbar />
       <Hero />
-      <Body />
+      <Body id="body" />
     </div>
   );
 }

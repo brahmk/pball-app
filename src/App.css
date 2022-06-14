@@ -12,8 +12,13 @@
   font-family: cooper;
 }
 
+:root {
+  --walls: rgb(81, 113, 81);
+  --court: #ffffff;
+}
+
 .hero {
-  background-image: url(./hero-wtext.png);
+  background-image: url(./hero-wavy-bright.png);
   background-repeat: no-repeat;
   height: 814px;
   width: 100vw;
@@ -27,10 +32,13 @@
 .background {
   background-image: url(./beach-shot.webp);
   background-size: cover;
+  margin-top: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .navbar {
-  height: 67px;
+  height: 7vh;
   width: 100vw;
   background-color: bisque;
   display: flex;
@@ -40,6 +48,9 @@
   margin-right: 200px;
 }
 
+.big-body-box {
+  color: var(--walls);
+}
 .card-box {
   width: 950px;
   height: 600px;
@@ -48,12 +59,39 @@
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  margin-left: 950px;
+  margin-left: 400px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 p {
   color: "white";
 
   font-size: 22px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  background-color: var(--walls);
+  font-family: cooper;
+
+  color: antiquewhite;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+}
+.button:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+@media all and (max-width: 30em) {
+  .button {
+    display: block;
+    margin: 0.2em auto;
+  }
 }
 
 .icon {
@@ -67,14 +105,14 @@ p {
 }
 
 .court-title {
-  color: darkseagreen;
+  color: var(--walls);
 }
 
 .signup-box {
-  background-color: antiquewhite;
-  margin-top: 20px;
+  background-color: bisque;
+  margin-top: 0px;
   margin-bottom: 20px;
-  color: rgb(81, 113, 81);
+  color: var(--walls);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,31 +136,38 @@ p {
 }
 input[type="text"] {
   border: none;
-  border-bottom: 2px solid rgb(81, 113, 81);
+  border-bottom: 2px solid var(--walls);
   border-radius: 2px;
-  background-color: antiquewhite;
+  background-color: bisque;
   outline: none;
-  color: rgb(81, 113, 81);
+  color: var(--walls);
   font-family: cooper;
 }
 input[type="email"] {
   border: none;
-  border-bottom: 2px solid rgb(81, 113, 81);
+  border-bottom: 2px solid var(--walls);
   border-radius: 2px;
-  background-color: antiquewhite;
+  background-color: bisque;
   outline: none;
-  color: rgb(81, 113, 81);
+  color: var(--walls);
   font-family: cooper;
 }
 input[type="password"] {
   border: none;
-  border-bottom: 2px solid rgb(81, 113, 81);
+  border-bottom: 2px solid var(--walls);
 
   border-radius: 2px;
-  background-color: antiquewhite;
+  background-color: bisque;
   outline: none;
-  color: rgb(81, 113, 81);
+  color: var(--walls);
   font-family: cooper;
+}
+.hidden-radio-box {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 160px;
 }
 
 /* HIDE RADIO */
@@ -136,11 +181,13 @@ input[type="password"] {
 /* IMAGE STYLES */
 .hidden-radio + img {
   cursor: pointer;
+  height: 150px;
+  width: auto;
 }
 
 /* CHECKED STYLES */
 .hidden-radio:checked + img {
-  outline: 2px solid rgb(177, 45, 45);
+  outline: 2px solid var(--walls);
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -182,7 +229,7 @@ input[type="password"] {
 .flip-card-front {
   border-radius: 40px 15px 40px 15px;
   background-color: bisque;
-  color: rgb(224, 223, 223);
+  color: var(--walls);
   background-image: url("./court-card-front.png");
   background-size: contain;
 }
@@ -201,4 +248,32 @@ input[type="password"] {
 @font-face {
   font-family: cooper;
   src: url("./Cooper\ Black\ Regular.ttf");
+}
+
+.bouncy {
+  animation: bouncy 5s infinite linear;
+  position: relative;
+}
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
 }
