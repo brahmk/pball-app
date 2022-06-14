@@ -10,6 +10,7 @@ export function MyContextProvider({ children }) {
   const [userList, setUserList] = useState([]);
   const [bBallCounter, setBBallCounter] = useState(0);
   const [tBallCounter, setTBallCounter] = useState(0);
+  const [here, setHere] = useState(false);
 
   const value = {
     token,
@@ -24,6 +25,8 @@ export function MyContextProvider({ children }) {
     setBBallCounter,
     tBallCounter,
     setTBallCounter,
+    here,
+    setHere,
   };
 
   return <Provider value={value}>{children}</Provider>;

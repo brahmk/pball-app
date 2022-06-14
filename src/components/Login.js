@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../context/context";
 
 export default function Login({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
+  const { user, setUser } = useContext(MyContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
     console.log(email, password);
-    fetch("https://pball-api-bk.web.app/login", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => res.json())
+    axios
+      .post("https://pball-api-bk.web.app/login", {
+        email,
+        password,
+      })
+      .then((res) => res.data)
       .then((data) => {
         if (data.error) {
           alert(data.error);
           return;
         }
-        setToken(data.token);
+        console.log(data);
+        setToken(data.id);
+        setUser(data);
         console.log(data.token);
         localStorage.setItem("token", data.token);
       })
+      .then(() => navigate("/")) //nav to body
       .catch((err) => console.log(err));
   };
 
@@ -48,6 +53,7 @@ export default function Login({ setToken }) {
             autoComplete="new-off"
           />
           <br />
+          <br />
           password:
           <br />
           <input
@@ -64,7 +70,9 @@ export default function Login({ setToken }) {
           <br />
           <br />
           <br />
-          <button type="submit">Login</button>
+          <button className="button bouncy" type="submit">
+            Login
+          </button>
         </form>
       </div>
     </div>
