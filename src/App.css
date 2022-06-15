@@ -5,10 +5,12 @@
   width: 100vw;
   background-size: cover;
   /* overflow-y: hidden; 
-  overflow-x: hidden;
+  
   /* opacity: 0.8;
   backdrop-filter: blur 140px; */
-
+  background-image: url(./beach-shot.webp);
+  background-size: cover;
+  background-attachment: fixed;
   font-family: cooper;
 }
 
@@ -20,7 +22,8 @@
 .hero {
   background-image: url(./hero-wavy-bright2.png);
   background-repeat: no-repeat;
-  height: 814px;
+  box-shadow: 15px 16px 3px 10px rgba(0, 0, 0, 0.05);
+  height: 100vh;
   width: 100vw;
   background-size: cover;
   /* overflow-y: hidden; */
@@ -40,7 +43,7 @@
 .navbar {
   height: 7vh;
   width: 100vw;
-  background-color: bisque;
+  /* background-color: bisque; */
   display: flex;
   flex-direction: row;
   justify-content: end;
