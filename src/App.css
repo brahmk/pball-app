@@ -47,6 +47,11 @@ a:visited {
   color: rgb(176, 137, 109);
 }
 
+.check-in-box {
+  display: flex;
+  flex-direction: row;
+}
+
 .navbar {
   height: 7vh;
   width: 100vw;
@@ -64,15 +69,15 @@ a:visited {
   color: var(--walls);
 }
 .card-box {
-  width: 950px;
-  height: 600px;
-  gap: 20px;
-  justify-content: center;
+  align-content: space-between;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
-  margin-left: 400px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  gap: 20px;
+
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #success {
