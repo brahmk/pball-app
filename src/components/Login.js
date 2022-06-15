@@ -3,11 +3,11 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/context";
 
-export default function Login({ setToken }) {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
-  const { user, setUser } = useContext(MyContext);
+  const { setToken, setUser, user } = useContext(MyContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -26,9 +26,10 @@ export default function Login({ setToken }) {
         console.log(data.user);
         setToken(data.user.token);
         setUser(data.user);
-        console.log(data.user.token);
-        //localStorage.setItem("user", data.user)
-        localStorage.setItem("token", data.token);
+        console.log(user);
+        localStorage.setItem("localId", data.user.id);
+        localStorage.setItem("localName", data.user.name);
+        localStorage.setItem("token", data.user.token);
       })
       .then(() => navigate("/")) //nav to body
       .catch((err) => console.log(err));
