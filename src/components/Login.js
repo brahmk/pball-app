@@ -33,7 +33,10 @@ export default function Login() {
       })
       .then((document.getElementById("success").style = "display:block"))
       .then(() => navigate("/")) //nav to body
-      .catch((err) => console.log(err));
+      .catch(
+        (err) => console.log(err),
+        (document.getElementById("fail").style = "display:block")
+      );
   };
 
   return (
@@ -81,6 +84,9 @@ export default function Login() {
         <br />
         <h3 id="success" className="login-text">
           Success!
+        </h3>
+        <h3 id="fail" className="login-text">
+          Try Again
         </h3>
       </div>
     </div>

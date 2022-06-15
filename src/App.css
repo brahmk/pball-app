@@ -40,15 +40,24 @@
   width: 100vw;
 }
 
+a {
+  color: rgb(176, 137, 109);
+}
+a:visited {
+  color: rgb(176, 137, 109);
+}
+
 .navbar {
   height: 7vh;
   width: 100vw;
   /* background-color: bisque; */
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
+  color: rgb(176, 137, 109);
+
   gap: 30px;
-  margin-right: 200px;
+  font-size: 30px;
 }
 
 .big-body-box {
@@ -67,6 +76,9 @@
 }
 
 #success {
+  display: none;
+}
+#fail {
   display: none;
 }
 p {
