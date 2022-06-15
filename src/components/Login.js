@@ -31,6 +31,7 @@ export default function Login() {
         localStorage.setItem("localName", data.user.name);
         localStorage.setItem("token", data.user.token);
       })
+      .then((document.getElementById("success").style = "display:block"))
       .then(() => navigate("/")) //nav to body
       .catch((err) => console.log(err));
   };
@@ -76,6 +77,11 @@ export default function Login() {
             Login
           </button>
         </form>
+        <br />
+        <br />
+        <h3 id="success" className="login-text">
+          Success!
+        </h3>
       </div>
     </div>
   );

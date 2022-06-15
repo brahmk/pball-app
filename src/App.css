@@ -22,7 +22,7 @@
 .hero {
   background-image: url(./hero-wavy-bright2.png);
   background-repeat: no-repeat;
-  box-shadow: 15px 16px 3px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 5px 5px 3px 10px rgba(0, 0, 0, 0.05);
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -64,6 +64,10 @@
   align-content: space-between;
   margin-left: 400px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#success {
+  display: none;
 }
 p {
   color: "white";
@@ -256,6 +260,7 @@ input[type="password"] {
 .bouncy {
   animation: bouncy 5s infinite linear;
   position: relative;
+  margin-left: 40px;
 }
 @keyframes bouncy {
   0% {
