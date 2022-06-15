@@ -11,11 +11,13 @@ export default function CheckIn() {
       .patch("https://pball-api-bk.web.app/checkin", {
         id,
       })
+
       .then((res) => {
         setHere(true);
         setUserList(res.data);
       })
       .catch(console.error);
+
   };
   return (
     <div>

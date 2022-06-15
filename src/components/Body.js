@@ -5,7 +5,9 @@ import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
 
 export default function Body() {
+
   const { setToken, bBallCounter, tBallCounter, user, setUser } =
+
     useContext(MyContext) || {};
 
   useEffect(() => {
@@ -31,12 +33,13 @@ export default function Body() {
   return (
     <div className="big-body-box">
       <h1 id="body-header" className="body-header">
+
         Hi {localStorage.getItem("localName")}. There are{" "}
         {bBallCounter + tBallCounter} people at the courts right now.
+
       </h1>
       <h3>🎾: {tBallCounter}</h3>
       <h3>🔵: {bBallCounter}</h3>
-
       <div className="check-in-box">
         {!user ? (
           <h3>
@@ -51,7 +54,7 @@ export default function Body() {
           </>
         )}
       </div>
-      <GetUsers />
+      <GetUsers />;
     </div>
   );
 }
