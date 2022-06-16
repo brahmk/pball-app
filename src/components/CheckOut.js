@@ -17,6 +17,7 @@ export default function CheckOut() {
       .then((res) => {
         setHere(false);
         setUserList(res.data);
+        alert("Checked Out!");
       })
       .catch(console.error);
   };
