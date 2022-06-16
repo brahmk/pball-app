@@ -40,21 +40,21 @@ export default function Body() {
   //   console.log(user);
   // }, [setUser]);
   return (
-    <div className="big-body-box">
-      <h1 id="body-header" className="body-header">
-        Hi {user.name}
-        <br /> There are {bBallCounter + tBallCounter} people at the courts
-        right now.
-      </h1>
-      <div>
-        <h3>🎾: {tBallCounter}</h3>
-        <h3>🔵: {bBallCounter}</h3>
-      </div>
-      <div className="check-in-box">
+    <>
+      <div className="big-body-box">
+        <h1 id="body-header" className="body-header">
+          Hi {user.name}
+          <br /> There are {bBallCounter + tBallCounter} people at the courts
+          right now.
+        </h1>
+        <div>
+          <h3>🎾: {tBallCounter}</h3>
+          <h3>🔵: {bBallCounter}</h3>
+        </div>
         {!user.ball ? (
           <h3>
             <a href="/login">Log In </a> or
-            <a href="/signup">Sign Up </a> to check in
+            <a href="/signup"> Sign Up </a> to check in
           </h3>
         ) : (
           //nested conditional render based on [here] (useEffect)
@@ -64,7 +64,9 @@ export default function Body() {
           </>
         )}
       </div>
-      <GetUsers />;
-    </div>
+      <div className="get-users">
+        <GetUsers />;
+      </div>
+    </>
   );
 }

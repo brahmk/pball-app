@@ -1,0 +1,5 @@
+checkin/out using localStorage id
+not setting localId on body - changes user object to only id - ask for help
+on media query change style of icon tag to lower x/y co-ords
+put all body items except card counter in separate div to make header at top
+GetUsers in different div - will render court cards separately...
