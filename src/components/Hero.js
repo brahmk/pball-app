@@ -1,8 +1,10 @@
 import React from "react";
+import hero from "../hero-trim.png";
 
 export default function Hero() {
   return (
-    <div className="hero">
+    <div>
+      <img src={hero} className="hero" />
       <div class="bird-container bird-container--one">
         <div class="bird bird--one"></div>
       </div>

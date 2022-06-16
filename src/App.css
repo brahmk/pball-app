@@ -20,12 +20,12 @@
 }
 
 .hero {
-  background-image: url(./hero-wavy-bright2.png);
+  background-image: url(./hero-trim.png);
   background-repeat: no-repeat;
   box-shadow: 5px 5px 3px 10px rgba(0, 0, 0, 0.05);
   height: 100vh;
-  width: 100vw;
-  background-size: cover;
+  width: 100%;
+  background-size: contain;
   /* overflow-y: hidden; */
   overflow-x: hidden;
   /* opacity: 0.8;
@@ -40,29 +40,36 @@
   width: 100vw;
 }
 
-a {
-  color: rgb(176, 137, 109);
-}
-a:visited {
-  color: rgb(176, 137, 109);
-}
-
 .check-in-box {
   display: flex;
   flex-direction: row;
 }
 
+/* navigation bar */
+
 .navbar {
-  height: 7vh;
   width: 100vw;
-  /* background-color: bisque; */
+  position: absolute;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  color: rgb(176, 137, 109);
-
+  justify-content: flex-end;
+  color: #e1d5bf;
+  text-decoration: none;
   gap: 30px;
   font-size: 30px;
+  align-items: center;
+  padding: 25px;
+  text-shadow: 2px 2px #000000;
+}
+
+a {
+  text-decoration: none;
+  color: #e1d5bf;
+}
+
+a:hover {
+  color: white;
 }
 
 .big-body-box {
@@ -74,7 +81,7 @@ a:visited {
   flex-wrap: wrap;
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   gap: 20px;
-
+  max-width: 65%;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;

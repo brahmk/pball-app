@@ -6,6 +6,7 @@ import { MyContext } from "../context/context";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   let navigate = useNavigate();
   const { setToken, setUser, user } = useContext(MyContext);
 
@@ -23,20 +24,17 @@ export default function Login() {
           alert(data.error);
           return;
         }
-        console.log(data.user);
+        console.log(data.user, "whats dis");
         setToken(data.user.token);
         setUser(data.user);
-        console.log(user);
+        console.log(user, "after set");
         localStorage.setItem("localId", data.user.id);
         localStorage.setItem("localName", data.user.name);
         localStorage.setItem("token", data.user.token);
       })
       .then((document.getElementById("success").style = "display:block"))
       .then(() => navigate("/")) //nav to body
-      .catch(
-        (err) => console.log(err),
-        (document.getElementById("fail").style = "display:block")
-      );
+      .catch((err) => setError(true));
   };
 
   return (
@@ -82,12 +80,15 @@ export default function Login() {
         </form>
         <br />
         <br />
+
         <h3 id="success" className="login-text">
           Success!
         </h3>
-        <h3 id="fail" className="login-text">
-          Try Again
-        </h3>
+        {error ? (
+          <h3 id="fail" className="login-text">
+            Try Again
+          </h3>
+        ) : null}
       </div>
     </div>
   );
