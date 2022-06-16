@@ -54,7 +54,7 @@ export default function Login() {
               setEmail(e.target.value);
               console.log(email);
             }}
-            autoComplete="new-off"
+            autoComplete="off"
           />
           <br />
           <br />
@@ -64,6 +64,7 @@ export default function Login() {
             type="password"
             id="password"
             className="password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);

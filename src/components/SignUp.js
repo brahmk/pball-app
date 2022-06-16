@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import courtMap from "../img/courtmap.png";
 import acourt from "../img/acourt.png";
 import bcourt from "../img/bcourt.png";
 import ccourt from "../img/ccourt.png";
@@ -66,7 +68,7 @@ export default function SignUp() {
             className="input-box"
             value={newUser.password}
             onChange={handleChange}
-            autoComplete="off"
+            autoComplete="new-password"
           />
           <br />
           <br />
@@ -101,9 +103,32 @@ export default function SignUp() {
             Tennis Ball 🎾
           </div>
           <br />
-          <div>
+          <div className="custom-select">
             what court do you play on most often?{" "}
-            <div className="hidden-radio-box">
+            <select name="homeCourt" onChange={handleChange}>
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+              <option value="e">E</option>
+              <option value="f">F</option>
+            </select>
+            <img className="court-map" src={courtMap} alt="map of courts" />
+          </div>
+          <button className="button bouncy" type="submit">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+{
+  /* 
+
+
+<div className="hidden-radio-box">
               <label>
                 <input
                   className="hidden-radio"
@@ -166,21 +191,5 @@ export default function SignUp() {
               </label>
             </div>{" "}
             <p></p>
-          </div>
-          <button className="button bouncy" type="submit">
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+          </div> */
 }
-
-//   <select name="homeCourt" onChange={handleChange}>
-//   <option value="a">A</option>
-//   <option value="b">B</option>
-//   <option value="c">C</option>
-//   <option value="d">D</option>
-//   <option value="e">E</option>
-//   <option value="f">F</option>
-// </select>

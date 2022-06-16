@@ -3,3 +3,12 @@ not setting localId on body - changes user object to only id - ask for help
 on media query change style of icon tag to lower x/y co-ords
 put all body items except card counter in separate div to make header at top
 GetUsers in different div - will render court cards separately...
+
+//done ^^^^
+
+todo:
+change icons from emojis
+make yellow ball icon
+work on body box
+salt pw on backend
+double bird

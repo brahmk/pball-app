@@ -40,35 +40,35 @@ export default function Body() {
     console.log(user, "set from body!");
   }, [setUser]);
   return (
-    <>
+    <div className="wrapper" id="wrapper">
       <div className="big-body-box">
-        <h1 id="body-header" className="body-header">
-          Hi {user.name}
-          <br /> There are {bBallCounter + tBallCounter} people at the courts
-          right now.
-        </h1>
-
-        {!user.id ? (
-          <h3>
-            <a href="/login">Log In </a> or
-            <a href="/signup"> Sign Up </a> to check in
-          </h3>
-        ) : (
-          //nested conditional render based on [here] (useEffect)
-          <>
-            {" "}
-            <CheckIn /> <CheckOut />
-          </>
+        {user.name && (
+          <h2 id="body-header" className="body-header">
+            Hi {user.name}!
+          </h2>
         )}
-      </div>
-
-      <div>
-        <h3>🎾: {tBallCounter}</h3>
-        <h3>🔵: {bBallCounter}</h3>
+        <div>
+          <br /> There are {bBallCounter + tBallCounter} people at the courts
+          right now. <br /> 🎾 {tBallCounter} 🔵 {bBallCounter}
+        </div>
+        <div className="body-buttons">
+          {!user.id ? (
+            <h3>
+              <a href="/login">Log In </a> or
+              <a href="/signup"> Sign Up </a> to check in
+            </h3>
+          ) : (
+            //nested conditional render based on [here] (useEffect)
+            <>
+              {" "}
+              <CheckIn /> <CheckOut />
+            </>
+          )}
+        </div>
       </div>
       <div className="get-users">
-        <GetUsers />;
+        <GetUsers />
       </div>
-    </>
+    </div>
   );
 }
