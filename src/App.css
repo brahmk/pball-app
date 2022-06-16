@@ -19,13 +19,18 @@
   --court: #ffffff;
 }
 
+h3 {
+  color: var(--walls);
+}
+
 .hero {
-  background-image: url(./hero-wavy-bright2.png);
+  background-image: url(./hero-trim.png);
   background-repeat: no-repeat;
   box-shadow: 5px 5px 3px 10px rgba(0, 0, 0, 0.05);
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
+  height: 50vw;
+  width: 100%;
+  margin-bottom: 0;
+  background-size: contain;
   /* overflow-y: hidden; */
   overflow-x: hidden;
   /* opacity: 0.8;
@@ -40,39 +45,54 @@
   width: 100vw;
 }
 
-a {
-  color: rgb(176, 137, 109);
-}
-a:visited {
-  color: rgb(176, 137, 109);
-}
-
-.navbar {
-  height: 7vh;
-  width: 100vw;
-  /* background-color: bisque; */
+.check-in-box {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  color: rgb(176, 137, 109);
+}
 
+/* navigation bar */
+
+.navbar {
+  width: 100vw;
+  position: absolute;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #e1d5bf;
+  text-decoration: none;
   gap: 30px;
   font-size: 30px;
+  align-items: center;
+  padding: 25px;
+  text-shadow: 2px 2px #000000;
+}
+
+a {
+  text-decoration: none;
+  color: #e1d5bf;
+}
+
+a:hover {
+  color: white;
 }
 
 .big-body-box {
   color: var(--walls);
+  display: flex;
+  margin-top: 0;
 }
 .card-box {
-  width: 950px;
-  height: 600px;
-  gap: 20px;
-  justify-content: center;
+  align-content: space-between;
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
-  margin-left: 400px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: cooper;
+  gap: 20px;
+  max-width: 65%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #success {
@@ -149,6 +169,7 @@ p {
 
 .header h1 {
   margin-top: 0;
+  margin-bottom: 0;
 }
 .header h2 {
   margin-top: 0;
@@ -260,6 +281,7 @@ input[type="password"] {
   background-image: url("./court-card-back.png");
   background-size: contain;
   color: bisque;
+  font-size: 24px;
   border-radius: 15px 40px 15px 40px;
   transform: rotateY(180deg);
 }

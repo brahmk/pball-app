@@ -15,9 +15,9 @@ export default function CheckIn() {
       .then((res) => {
         setHere(true);
         setUserList(res.data);
+        alert("Checked In!");
       })
       .catch(console.error);
-
   };
   return (
     <div>

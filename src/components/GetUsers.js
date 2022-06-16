@@ -96,8 +96,8 @@ export default function GetUsers() {
     return <p>Loading...</p>;
   }
 
-  // setBBallCounter(bBallPlayers);
-  // setTBallCounter(tBallPlayers);
+  setBBallCounter(playerList.bBallPlayers);
+  setTBallCounter(playerList.tBallPlayers);
   return (
     <>
       <div className="card-box">

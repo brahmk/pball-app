@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Navbar() {
   return (
     <div className="navbar">
       <Link to="/login">Log In</Link>
       <Link to="/signup">Sign Up</Link>
-      <Link to="#body-header">Courts</Link>
+      <HashLink to="/#body-header">Courts</HashLink>
     </div>
   );
 }
