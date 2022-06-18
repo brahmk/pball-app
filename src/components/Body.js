@@ -44,7 +44,7 @@ export default function Body() {
       <div className="big-body-box">
         {user.name && (
           <h2 id="body-header" className="body-header">
-            Hi {user.name}!
+            Hi {user.name}.
           </h2>
         )}
         <div>
