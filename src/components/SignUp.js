@@ -19,7 +19,7 @@ export default function SignUp() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(newUser, "WHY DID THIS BREAK");
+
     newUser.email = newUser.email.toLowerCase();
     axios
       .post("https://pball-api-bk.web.app/signup", {
