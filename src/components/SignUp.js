@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import acourt from "../img/acourt.png";
-import bcourt from "../img/bcourt.png";
-import ccourt from "../img/ccourt.png";
-import dcourt from "../img/dcourt.png";
-import ecourt from "../img/ecourt.png";
-import fcourt from "../img/fcourt.png";
+
+import mural from "../img/paddleball_mural_better.png";
+
+import courtMap from "../img/courtmap.png";
 
 export default function SignUp() {
   let navigate = useNavigate();
@@ -21,6 +19,7 @@ export default function SignUp() {
 
   const handleSignup = (e) => {
     e.preventDefault();
+
     newUser.email = newUser.email.toLowerCase();
     axios
       .post("https://pball-api-bk.web.app/signup", {
@@ -42,6 +41,7 @@ export default function SignUp() {
 
   return (
     <div className="background">
+      {/* <img src={mural} id="mural" /> */}
       <div className="signup-box">
         <br />
         <h2>
@@ -66,7 +66,7 @@ export default function SignUp() {
             className="input-box"
             value={newUser.password}
             onChange={handleChange}
-            autoComplete="off"
+            autoComplete="new-password"
           />
           <br />
           <br />
@@ -101,9 +101,35 @@ export default function SignUp() {
             Tennis Ball 🎾
           </div>
           <br />
-          <div>
-            what court do you play on most often?{" "}
-            <div className="hidden-radio-box">
+          <div className="custom-select">
+            what court do you play on most often? &nbsp;&nbsp;
+            <select name="homeCourt" onChange={handleChange}>
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+              <option value="e">E</option>
+              <option value="f">F</option>
+            </select>
+            <br />
+            <img className="court-map" src={courtMap} alt="map of courts" />
+          </div>
+          <br />
+          <button className="button" type="submit">
+            Sign Up
+          </button>
+        </form>
+        <br />
+      </div>
+    </div>
+  );
+}
+
+{
+  /* 
+
+
+<div className="hidden-radio-box">
               <label>
                 <input
                   className="hidden-radio"
@@ -166,21 +192,5 @@ export default function SignUp() {
               </label>
             </div>{" "}
             <p></p>
-          </div>
-          <button className="button bouncy" type="submit">
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+          </div> */
 }
-
-//   <select name="homeCourt" onChange={handleChange}>
-//   <option value="a">A</option>
-//   <option value="b">B</option>
-//   <option value="c">C</option>
-//   <option value="d">D</option>
-//   <option value="e">E</option>
-//   <option value="f">F</option>
-// </select>

@@ -39,7 +39,7 @@ export default function Login() {
 
   return (
     <div className="background">
-      <div className="signup-box">
+      <div className="login-box">
         <h1>
           <u>Login</u>
         </h1>
@@ -54,7 +54,7 @@ export default function Login() {
               setEmail(e.target.value);
               console.log(email);
             }}
-            autoComplete="new-off"
+            autoComplete="off"
           />
           <br />
           <br />
@@ -64,6 +64,7 @@ export default function Login() {
             type="password"
             id="password"
             className="password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);
@@ -74,7 +75,7 @@ export default function Login() {
           <br />
           <br />
           <br />
-          <button className="button bouncy" type="submit">
+          <button className="button" type="submit">
             Login
           </button>
         </form>
