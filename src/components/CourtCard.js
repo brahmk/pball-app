@@ -37,7 +37,7 @@ export default function CourtCard({ title, playerCount, nameList }) {
           <div className="name-box">
             {nameList &&
               nameList.map((name) => {
-                return <li key={name}>{name}</li>;
+                return <p key={name}>{name}</p>;
               })}
           </div>
         </div>

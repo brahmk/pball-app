@@ -42,15 +42,19 @@ export default function Body() {
   return (
     <div className="wrapper" id="wrapper">
       <div className="big-body-box">
-        {user.name && (
+        {user.name ? (
           <h2 id="body-header" className="body-header">
-            Hi {user.name}.
+            Hi {user.name}.<br /> There are {bBallCounter + tBallCounter} people
+            at the courts right now. <br /> 🎾 {tBallCounter} 🔵 {bBallCounter}
+          </h2>
+        ) : (
+          <h2 id="body-header" className="body-header">
+            Hi.
+            <br /> There are {bBallCounter + tBallCounter} people at the courts
+            right now. <br /> 🎾 {tBallCounter} 🔵 {bBallCounter}
           </h2>
         )}
-        <div>
-          <br /> There are {bBallCounter + tBallCounter} people at the courts
-          right now. <br /> 🎾 {tBallCounter} 🔵 {bBallCounter}
-        </div>
+        <div></div>
         <div className="body-buttons">
           {!user.id ? (
             <h3>

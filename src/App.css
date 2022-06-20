@@ -6,12 +6,14 @@
   max-width: 100vw;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
 }
 
 html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 form {
   display: flex;
@@ -31,7 +33,7 @@ h3 {
   background-image: url(./hero-trim.png);
   background-repeat: no-repeat;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
-  height: 57vw;
+  height: 50vw;
   width: 100%;
   margin-bottom: 0;
   background-size: contain;
@@ -93,6 +95,7 @@ a:hover {
   padding: 2rem;
   display: grid;
   gap: 50px;
+  height: 111vh;
   grid-template-columns: 500px auto;
 }
 
@@ -104,8 +107,8 @@ a:hover {
 
 .logo {
   position: absolute;
-  top: 15%;
-  left: 22%;
+  top: 21%;
+  left: 29%;
 }
 
 .big-body-box {
@@ -117,7 +120,7 @@ a:hover {
   gap: 10px;
   background-color: bisque;
   opacity: 0.8;
-  height: 40%;
+  height: 23%;
   border-radius: 10px 10px 10px 10px;
   padding: 10px 20px 10px 20px;
 }
@@ -193,6 +196,26 @@ p {
   color: var(--walls);
   display: flex;
   flex-direction: column;
+
+  align-items: center;
+  text-justify: auto;
+  width: 600px;
+  height: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 2px 2px 0px;
+  border-radius: 5px 5px 5px 5px;
+  opacity: 0.88;
+  font-family: cooper;
+}
+
+.login-box {
+  background-color: bisque;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: var(--walls);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-justify: auto;
@@ -204,6 +227,15 @@ p {
   border-radius: 5px 5px 5px 5px;
   opacity: 0.88;
   font-family: cooper;
+}
+
+.login-box button {
+  margin-right: auto;
+  margin-left: auto;
+}
+.signup-box button {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .header h1 {
@@ -331,11 +363,11 @@ input[type="password"] {
   src: url("./Cooper\ Black\ Regular.ttf");
 }
 
-.bouncy {
+/* .bouncy {
   animation: bouncy 5s infinite linear;
   position: relative;
   margin-left: 40px;
-}
+} */
 @keyframes bouncy {
   0% {
     top: 0em;
@@ -366,4 +398,12 @@ input[type="password"] {
   max-height: 285px;
   width: auto;
   height: auto;
+}
+
+#mural {
+  max-width: 150px;
+  max-height: 150px;
+  top: 2%;
+  left: 90%;
+  position: absolute;
 }

@@ -2,13 +2,9 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import mural from "../img/paddleball_mural_better.png";
+
 import courtMap from "../img/courtmap.png";
-import acourt from "../img/acourt.png";
-import bcourt from "../img/bcourt.png";
-import ccourt from "../img/ccourt.png";
-import dcourt from "../img/dcourt.png";
-import ecourt from "../img/ecourt.png";
-import fcourt from "../img/fcourt.png";
 
 export default function SignUp() {
   let navigate = useNavigate();
@@ -23,6 +19,7 @@ export default function SignUp() {
 
   const handleSignup = (e) => {
     e.preventDefault();
+    console.log(newUser, "WHY DID THIS BREAK");
     newUser.email = newUser.email.toLowerCase();
     axios
       .post("https://pball-api-bk.web.app/signup", {
@@ -44,6 +41,7 @@ export default function SignUp() {
 
   return (
     <div className="background">
+      {/* <img src={mural} id="mural" /> */}
       <div className="signup-box">
         <br />
         <h2>
@@ -104,7 +102,7 @@ export default function SignUp() {
           </div>
           <br />
           <div className="custom-select">
-            what court do you play on most often?{" "}
+            what court do you play on most often? &nbsp;&nbsp;
             <select name="homeCourt" onChange={handleChange}>
               <option value="a">A</option>
               <option value="b">B</option>
@@ -113,12 +111,15 @@ export default function SignUp() {
               <option value="e">E</option>
               <option value="f">F</option>
             </select>
+            <br />
             <img className="court-map" src={courtMap} alt="map of courts" />
           </div>
-          <button className="button bouncy" type="submit">
+          <br />
+          <button className="button" type="submit">
             Sign Up
           </button>
         </form>
+        <br />
       </div>
     </div>
   );
