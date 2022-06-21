@@ -102,31 +102,6 @@ export default function GetUsers() {
     <>
       <div className="card-box">
         <CourtCard
-          title="D"
-          playerCount={playerList.dCourtPlayers}
-          nameList={playerList.dNames}
-        />
-        <CourtCard
-          title="E"
-          playerCount={playerList.eCourtPlayers}
-          nameList={playerList.eNames}
-        />
-        <CourtCard
-          title="F"
-          playerCount={playerList.fCourtPlayers}
-          nameList={playerList.fNames}
-        />
-        <CourtCard
-          title="C"
-          playerCount={playerList.cCourtPlayers}
-          nameList={playerList.cNames}
-        />
-        <CourtCard
-          title="B"
-          playerCount={playerList.bCourtPlayers}
-          nameList={playerList.bNames}
-        />
-        <CourtCard
           title="A"
           playerCount={playerList.aCourtPlayers}
           nameList={playerList.aNames}

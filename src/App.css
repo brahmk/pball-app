@@ -1,5 +1,5 @@
 .App {
-  background-image: url(./beach-shot.webp);
+  /* background-image: url(./beach-shot.webp); */
   background-size: cover;
   background-attachment: fixed;
   font-family: cooper;
@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   overflow-y: hidden;
+  background-color: darkgrey;
 }
 
 html {
@@ -27,6 +28,25 @@ form {
 
 h3 {
   color: var(--walls);
+}
+
+.model {
+  height: 100px;
+  width: 30px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 75px;
+  display: none;
+  z-index: 8;
+}
+.model2 {
+  display: none;
+  height: 150px;
+  width: 45px;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 200px;
+  z-index: 9;
 }
 
 .hero {
@@ -320,7 +340,7 @@ input[type="password"] {
   /* border: 1px solid #f1f1f1; */
   border-radius: 15px 50px 0px 0px;
   /* perspective: 1000px; */
-  perspective: 266px;
+  perspective: 300px;
 }
 
 .flip-card-inner {
@@ -334,8 +354,94 @@ input[type="password"] {
 }
 
 .flip-card:hover .flip-card-inner {
-  /* transform: rotateY(180deg); */
   transform: rotateX(180deg) rotateZ(720deg) rotateY(180deg) rotateX(120deg);
+}
+
+.line {
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+}
+.wall {
+  background-color: transparent;
+  height: 20px;
+  width: 150px;
+  animation: grow;
+  animation-play-state: paused;
+  position: absolute;
+  margin-left: 47px;
+  color: darkgrey;
+}
+
+/* .wall:hover {
+  background-color: var(--walls);
+  animation-name: grow;
+
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+} */
+.flip-card:hover .wall {
+  background-color: var(--walls);
+  color: gold;
+  animation-play-state: running;
+  animation-name: grow;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+.flip-card:hover .model {
+  display: block;
+  animation-play-state: running;
+  animation-name: grow-model;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+}
+.flip-card:hover .model2 {
+  display: block;
+  animation-play-state: running;
+  animation-name: grow-model-s;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+}
+
+@keyframes grow {
+  0% {
+    height: 0px;
+  }
+  15% {
+    height: 200px;
+  }
+  25% {
+    height: 200px;
+  }
+  50% {
+    height: 200px;
+  }
+  75% {
+    height: 200px;
+  }
+  99% {
+    height: 200px;
+  }
+}
+
+@keyframes grow-model {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 100px;
+  }
+}
+
+@keyframes grow-model-s {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 150px;
+  }
 }
 
 .flip-card-front,
