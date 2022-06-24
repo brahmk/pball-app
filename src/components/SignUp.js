@@ -103,7 +103,7 @@ export default function SignUp() {
           <br />
           <div className="custom-select">
             what court do you play on most often? &nbsp;&nbsp;
-            <select name="homeCourt" onChange={handleChange}>
+            <select name="homeCourt" defaultValue={"b"} onChange={handleChange}>
               <option value="a">A</option>
               <option value="b">B</option>
               <option value="c">C</option>

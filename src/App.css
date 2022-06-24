@@ -358,16 +358,16 @@ input[type="password"] {
   background-color: bisque;
   color: var(--walls);
   background-image: url("./court-card-front.png");
-  background-size: contain;
+  background-size: cover;
 }
 
 .flip-card-back {
   background-color: darkseagreen;
 
   background-image: url("./court-card-back.png");
-  background-size: contain;
+  background-size: cover;
   color: bisque;
-  font-size: 24px;
+  font-size: 18px;
   border-radius: 15px 40px 15px 40px;
   transform: rotateY(180deg);
 }

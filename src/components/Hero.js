@@ -1,6 +1,4 @@
 import React from "react";
-import hero from "../hero-trim.png";
-import heroblank from "../img/hero-blank.png";
 
 import logo from "../img/wavy-highlights.png";
 
