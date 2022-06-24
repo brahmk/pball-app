@@ -6,8 +6,8 @@ import logo from "../img/wavy-highlights.png";
 
 export default function Hero() {
   return (
-    <div>
-      <img src={heroblank} className="hero" />
+    <div className="hero-box">
+      {/* <img src={heroblank} className="hero" /> */}
       <div class="bird-container bird-container--one">
         <div class="bird bird--one"></div>
       </div>

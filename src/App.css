@@ -29,15 +29,23 @@ h3 {
   color: var(--walls);
 }
 
-.hero {
-  background-image: url(./hero-trim.png);
+.hero-box {
+  background-image: url(../src/img/hero-blank.png);
   background-repeat: no-repeat;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
-  height: 53vw;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin-bottom: 0;
-  background-size: contain;
+  background-size: cover;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  position: relative;
+  width: 60%;
+  height: 69%;
 }
 
 .get-users {
@@ -66,7 +74,7 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-
+  z-index: 10;
   color: #e1d5bf;
   text-decoration: none;
   gap: 30px;
@@ -95,8 +103,8 @@ a:hover {
   padding: 2rem;
   display: grid;
   gap: 50px;
-  height: 111vh;
-  grid-template-columns: 500px auto;
+  height: 120vh;
+  grid-template-columns: 400px auto;
 }
 
 .body-buttons {
@@ -104,12 +112,11 @@ a:hover {
   gap: 10px;
   display: flex;
 }
-
-.logo {
-  position: absolute;
-  top: 21%;
-  left: 29%;
-}
+/* .hero-box {
+  width: 100%;
+  height: 100%;
+  background-image: url(../src/img/hero-blank.png);
+} */
 
 .big-body-box {
   color: var(--walls);
@@ -315,8 +322,8 @@ input[type="password"] {
 
 .flip-card {
   background-color: transparent;
-  width: 250px;
-  height: 400px;
+  width: 30vh;
+  height: 45vh;
   /* border: 1px solid #f1f1f1; */
   border-radius: 15px 50px 0px 0px;
   perspective: 1000px;
