@@ -108,3 +108,12 @@
     transform: translateY(0vh) translateX(110vw) scale(0.6);
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .bird-container {
+    top: 10%;
+  }
+  .bird {
+    top: 10%;
+  }
+}
