@@ -30,25 +30,6 @@ h3 {
   color: var(--walls);
 }
 
-.model {
-  height: 100px;
-  width: 30px;
-  position: absolute;
-  margin-top: 50px;
-  margin-left: 75px;
-  display: none;
-  z-index: 8;
-}
-.model2 {
-  display: none;
-  height: 150px;
-  width: 45px;
-  position: absolute;
-  margin-top: 90px;
-  margin-left: 200px;
-  z-index: 9;
-}
-
 .hero {
   background-image: url(./hero-trim.png);
   background-repeat: no-repeat;
@@ -373,6 +354,80 @@ input[type="password"] {
   margin-left: 47px;
   color: darkgrey;
 }
+.model {
+  height: 100px;
+  width: 30px;
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 75px;
+  display: none;
+  z-index: 8;
+}
+.model2 {
+  display: none;
+  height: 150px;
+  width: 45px;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 200px;
+  z-index: 9;
+}
+.model3 {
+  display: none;
+  height: 170px;
+  width: 150px;
+  position: absolute;
+  margin-top: 70px;
+  margin-left: 100px;
+  z-index: 9;
+}
+
+.ball {
+  width: 15px;
+  height: 15px;
+  margin-top: 50px;
+  margin-left: 100px;
+  display: none;
+  position: absolute;
+}
+.flip-card:hover .ball {
+  display: block;
+  animation-play-state: running;
+  animation-name: move-ball;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move-ball {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    transform: translateY(0, 0);
+  }
+
+  50% {
+    transform: translate(120px, 0) translateY(40px) scale(1.4);
+  }
+
+  80% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes scale-ball {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.3);
+  }
+
+  80% {
+    transform: scale(1.4);
+  }
+}
 
 /* .wall:hover {
   background-color: var(--walls);
@@ -394,13 +449,21 @@ input[type="password"] {
   display: block;
   animation-play-state: running;
   animation-name: grow-model;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-iteration-count: 1;
 }
 .flip-card:hover .model2 {
   display: block;
   animation-play-state: running;
   animation-name: grow-model-s;
+  animation-duration: 3.6s;
+  animation-iteration-count: 1;
+}
+
+.flip-card:hover .model3 {
+  display: block;
+  animation-play-state: running;
+  animation-name: grow-model-3;
   animation-duration: 4s;
   animation-iteration-count: 1;
 }
@@ -441,6 +504,15 @@ input[type="password"] {
   }
   to {
     height: 150px;
+  }
+}
+
+@keyframes grow-model-3 {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 200px;
   }
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import model from "../img/player3d2.png";
+import ball from "../img/tball.png";
 
 export default function CourtCard({ title, playerCount, nameList }) {
   let iconArray = [];
@@ -34,7 +35,9 @@ export default function CourtCard({ title, playerCount, nameList }) {
           <div className="line">--------------------------------</div>
         </div>
         <img src={model} className="model" />
+        <img src={ball} className="ball" />
         <img src={model} className="model2" />
+        {/* <img src={model} className="model3" /> */}
 
         <div className="flip-card-inner">
           <div className="flip-card-front">

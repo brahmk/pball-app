@@ -1,11 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { MyContextProvider } from "../context/context";
 import GetUsers from "./GetUsers";
-import Login from "./Login";
 import { MyContext } from "../context/context";
 import CheckIn from "./CheckIn";
 import CheckOut from "./CheckOut";
-import userEvent from "@testing-library/user-event";
 
 export default function Body() {
   const {
@@ -39,6 +36,7 @@ export default function Body() {
 
     console.log(user, "set from body!");
   }, [setUser]);
+
   return (
     <div className="wrapper" id="wrapper">
       <div className="big-body-box">
